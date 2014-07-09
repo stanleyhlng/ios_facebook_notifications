@@ -112,15 +112,25 @@
                                          notificationsNavigationController,
                                          moreNavigationController
                                         ];
-    self.tabBarController = tabBarController;
-    
     // Configure the tab bar items
     
     feedNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-feed-50"];
+    feedNavigationController.tabBarItem.tag = 0;
+    
     requestsNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-requests-50"];
+    requestsNavigationController.tabBarItem.tag = 1;
+    
     messengerNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-messenger-50"];
+    messengerNavigationController.tabBarItem.tag = 2;
+    
     notificationsNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-notifications-50"];
+    notificationsNavigationController.tabBarItem.tag = 3;
+    
     moreNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-menu-50"];
+    moreNavigationController.tabBarItem.tag = 4;
+    
+    [tabBarController setSelectedViewController:notificationsNavigationController];
+    self.tabBarController = tabBarController;
 }
 
 - (void)customizeWindow
