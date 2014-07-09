@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSString *link;
 @property (nonatomic, strong) NSString *createdTime;
 @property (nonatomic, strong) NSString *userPictureUrl;

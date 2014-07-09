@@ -11,6 +11,7 @@
 
 @interface NotificationsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *notifications;
 
 @end
 
@@ -25,8 +26,15 @@
         [self customizeLeftBarButton];
         [self customizeRightBarButton];
         
+        self.notifications = [[NSMutableArray alloc] initWithCapacity:0];
+        
         [Notification getNotificationsWithParams:nil success:^(NSArray *notifications) {
+            
             NSLog(@"notifications: %@", notifications);
+            
+            self.notifications = [notifications mutableCopy];
+            [self.tableView reloadData];
+            
         } failure:nil];
     }
     return self;
@@ -91,20 +99,40 @@
     self.tableView.delegate = self;
 }
 
+- (NSString *)styledHTMLWithHTML:(NSString *)HTML {
+    NSString *style = @"<meta charset=\"UTF-8\"><style> body { font-family: 'HelveticaNeue'; font-size: 20px; } b {font-family: 'MarkerFelt-Wide'; }</style>";
+    
+    return [NSString stringWithFormat:@"%@%@", style, HTML];
+}
+
+- (NSAttributedString *)attributedStringWithHTML:(NSString *)HTML {
+    NSDictionary *options = @{
+                              NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType
+                            };
+    return [[NSAttributedString alloc] initWithData:[HTML dataUsingEncoding:NSUTF8StringEncoding] options:options documentAttributes:NULL error:NULL];
+}
+
 #pragma UITableViewDataSource methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Notification *notification = self.notifications[indexPath.row];
+    NSLog(@"DEBUG: %@", notification.title);
+
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
-    cell.textLabel.text = @"Hello";
+    //cell.textLabel.text = @"Hello";
+    NSString *styledHtml = [self styledHTMLWithHTML:notification.text];
+    NSAttributedString *attributedText = [self attributedStringWithHTML:styledHtml];
     
+    cell.textLabel.attributedText = attributedText;
+   
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.notifications.count;
 }
 
 #pragma UITableViewDelegate methods
