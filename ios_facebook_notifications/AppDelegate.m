@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "FeedViewController.h"
+#import "RequestsViewController.h"
+#import "MessengerViewController.h"
+#import "NotificationsViewController.h"
+#import "MoreViewController.h"
 
 @interface AppDelegate ()
 
@@ -78,7 +83,38 @@
 
 - (void)customizeTabBarController
 {
-    self.tabBarController = [[UITabBarController alloc] init];
+    // Create view controllers
+    
+    UIViewController *feedViewController = [[FeedViewController alloc] init];
+    UINavigationController *feedNavigationController = [[UINavigationController alloc] initWithRootViewController:feedViewController];
+
+    UIViewController *requestsViewController = [[RequestsViewController alloc] init];
+    UINavigationController *requestsNavigationController = [[UINavigationController alloc] initWithRootViewController:requestsViewController];
+    
+    UIViewController *messengerViewController = [[MessengerViewController alloc] init];
+    UINavigationController *messengerNavigationController = [[UINavigationController alloc] initWithRootViewController:messengerViewController];
+
+    UIViewController *notificationsViewController = [[NotificationsViewController alloc] init];
+    UINavigationController *notificationsNavigationController = [[UINavigationController alloc] initWithRootViewController:notificationsViewController];
+    
+    UIViewController *moreViewController = [[MoreViewController alloc] init];
+    UINavigationController *moreNavigationController = [[UINavigationController alloc] initWithRootViewController:moreViewController];
+    
+    // Configure the tab bar controller
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[
+                                         feedNavigationController,
+                                         requestsNavigationController,
+                                         messengerNavigationController,
+                                         notificationsNavigationController,
+                                         moreNavigationController
+                                        ];
+    
+    // Configure the tab bar items
+    
+
+    self.tabBarController = tabBarController;
 }
 
 @end
