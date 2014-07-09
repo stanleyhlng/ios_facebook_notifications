@@ -9,6 +9,7 @@
 #import "NotificationsViewController.h"
 
 @interface NotificationsViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -30,6 +31,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setupTableView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,6 +78,37 @@
                                                                      action:nil];
     
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, barButtonItem, nil];
+}
+
+- (void)setupTableView
+{
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+}
+
+#pragma UITableViewDataSource methods
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    
+    cell.textLabel.text = @"Hello";
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 20;
+}
+
+#pragma UITableViewDelegate methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"did select row at index path: %d", indexPath.row);
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
