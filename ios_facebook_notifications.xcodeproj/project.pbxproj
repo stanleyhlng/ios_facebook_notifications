@@ -118,6 +118,7 @@
 		2041C5BD196D0B6C00CF44E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2041C5DC196D2D3700CF44E8 /* Notification */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -170,6 +171,13 @@
 				2041C5D9196D113700CF44E8 /* MoreViewController.xib */,
 			);
 			name = More;
+			sourceTree = "<group>";
+		};
+		2041C5DC196D2D3700CF44E8 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Notification;
 			sourceTree = "<group>";
 		};
 		20548836196D087C007B99FF = {

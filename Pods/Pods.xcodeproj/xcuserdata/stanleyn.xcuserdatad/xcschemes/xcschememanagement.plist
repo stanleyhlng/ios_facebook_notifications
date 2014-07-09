@@ -4,7 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AVHexColor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-DateTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Mantle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -14,7 +29,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TTTAttributedLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-UIActivityIndicator-for-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D4003D660344E858B2C01B0</key>
+		<key>245D3E803CDD4CA795CB4EC8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5BF3F8A666FE4E3B905E8E07</key>
+		<key>321F083CB6EF4EA1998D8632</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6AE3D064CC034EE4B93B1113</key>
+		<key>3DCA3052A9C24A78B1F6C111</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F44F6FB5AE8C4904894BEE33</key>
+		<key>4B8ABF1EB5084E2583D48A76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>569A95FC71ED48BCB2E22700</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5938231E2AF84440A5C99D6F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6978A70B4AE041559DA5CEF4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7CC59FCC1D3F49A0A66EF985</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E6496A6608B443718D69A7BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
