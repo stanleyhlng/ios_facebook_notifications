@@ -116,8 +116,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"cell for row at index path: %d", indexPath.row);
+    
     Notification *notification = self.notifications[indexPath.row];
-    NSLog(@"DEBUG: %@", notification.title);
+    //NSLog(@"DEBUG: %@", notification.title);
 
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
