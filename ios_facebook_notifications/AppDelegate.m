@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self customizeStatusBar];
-    [self customizeTabBar];
+    [self customizeTabBarController];
     [self customizeWindow];
     
     return YES;
@@ -76,7 +76,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
-- (void)customizeTabBar
+- (void)customizeTabBarController
 {
     self.tabBarController = [[UITabBarController alloc] init];
 }
