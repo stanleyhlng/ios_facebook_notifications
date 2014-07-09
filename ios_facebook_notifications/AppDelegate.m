@@ -12,6 +12,7 @@
 #import "MessengerViewController.h"
 #import "NotificationsViewController.h"
 #import "MoreViewController.h"
+#import "AVHexColor.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +26,8 @@
 {
     [self customizeStatusBar];
     [self customizeTabBarController];
+    [self customizeNavBarAppearance];
+    [self customizeBarButtonItemAppearance];
     [self customizeWindow];
     
     return YES;
@@ -57,23 +60,22 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (void)customizeWindow
+- (void)customizeNavBarAppearance
 {
-    /*
-    LoginViewController *vc = [[LoginViewController alloc] init];
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = nvc;
-    [self.window makeKeyAndVisible];
-     */
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = self.tabBarController;
-    [self.window makeKeyAndVisible];
+    id navigationBarAppearance = [UINavigationBar appearance];
+    [navigationBarAppearance setTitleTextAttributes:
+     @{
+       NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0f]
+       }];
+    [navigationBarAppearance setTintColor:[AVHexColor colorWithHexString:@"#3B5998"]];
+    [navigationBarAppearance setBarTintColor:[AVHexColor colorWithHexString:@"#3B5998"]];
+}
+
+- (void)customizeBarButtonItemAppearance
+{
+    id barButtonItemAppearance = [UIBarButtonItem appearance];
+    [barButtonItemAppearance setTintColor:[UIColor whiteColor]];
 }
 
 - (void)customizeStatusBar
@@ -110,15 +112,34 @@
                                          notificationsNavigationController,
                                          moreNavigationController
                                         ];
+    self.tabBarController = tabBarController;
     
     // Configure the tab bar items
+    
     feedNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-feed-50"];
     requestsNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-requests-50"];
     messengerNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-messenger-50"];
     notificationsNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-notifications-50"];
     moreNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-menu-50"];
+}
 
-    self.tabBarController = tabBarController;
+- (void)customizeWindow
+{
+    /*
+     LoginViewController *vc = [[LoginViewController alloc] init];
+     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+     
+     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+     self.window.backgroundColor = [UIColor whiteColor];
+     self.window.rootViewController = nvc;
+     [self.window makeKeyAndVisible];
+     */
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = self.tabBarController;
+    [self.window makeKeyAndVisible];
 }
 
 @end
