@@ -24,20 +24,7 @@
         [self customizeTitleView];
         [self customizeLeftBarButton];
         [self customizeRightBarButton];
-        
-        /*
-        NSDictionary *response = @{
-            @"id": @"212313534",
-            @"title": @"Lafina Chan invited you to like ARISSTO HK.",
-            @"link": @"https://www.facebook.com/n/?arisstohongkong&amp;aref=212313534&amp;medium=rss",
-            @"created_time": @"Tue, 08 Jul 2014 20:20:33 -0700",
-            @"user_picture_url": @"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/p50x50/30840_402026276376_1704959_n.jpg",
-            @"app_icon_url": @"https://fbstatic-a.akamaihd.net/rsrc.php/v2/y7/r/BBNpOfje7MB.png"
-            };
-        Notification* notification = [Notification parseNotification:response];
-        NSLog(@"notification: %@", notification);
-        */
-        
+               
         NSArray *response =
             @[
               @{
