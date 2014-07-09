@@ -112,7 +112,11 @@
                                         ];
     
     // Configure the tab bar items
-    
+    feedNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-feed-50"];
+    requestsNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-requests-50"];
+    messengerNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-messenger-50"];
+    notificationsNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-notifications-50"];
+    moreNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon-menu-50"];
 
     self.tabBarController = tabBarController;
 }
