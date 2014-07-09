@@ -22,4 +22,7 @@
 
 + (Notification *)parseNotification:(NSDictionary *)dictionary;
 + (NSArray *)parseNotifications:(NSArray *)array;
++ (void)getNotificationsWithParams:(NSDictionary *)params
+                           success:(void(^)(NSArray *notifications))success
+                           failure:(void(^)(NSError *error))failure;
 @end
