@@ -2,20 +2,55 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedViewController">
             <connections>
+                <outlet property="imageView" destination="ZVg-1C-Uui" id="8bB-GM-Si2"/>
+                <outlet property="scrollView" destination="nD3-fG-uod" id="eT4-Es-wgd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="1340"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-fG-uod">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="1340"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mock-feed" translatesAutoresizingMaskIntoConstraints="NO" id="ZVg-1C-Uui">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="1340"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="ZVg-1C-Uui" secondAttribute="height" multiplier="16:67" id="g6L-9U-6bz"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ZVg-1C-Uui" secondAttribute="trailing" id="3Ds-He-wj0"/>
+                        <constraint firstAttribute="bottom" secondItem="ZVg-1C-Uui" secondAttribute="bottom" id="DoA-t8-MT0"/>
+                        <constraint firstItem="ZVg-1C-Uui" firstAttribute="leading" secondItem="nD3-fG-uod" secondAttribute="leading" id="Jz0-go-Xkc"/>
+                        <constraint firstAttribute="width" secondItem="ZVg-1C-Uui" secondAttribute="width" id="XuD-lJ-gvg"/>
+                        <constraint firstItem="ZVg-1C-Uui" firstAttribute="top" secondItem="nD3-fG-uod" secondAttribute="top" id="Zw0-Ua-mjq"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="nD3-fG-uod" secondAttribute="bottom" id="Bcu-j8-WOw"/>
+                <constraint firstItem="nD3-fG-uod" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DKq-tm-Aco"/>
+                <constraint firstItem="nD3-fG-uod" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="k73-so-vNc"/>
+                <constraint firstAttribute="trailing" secondItem="nD3-fG-uod" secondAttribute="trailing" id="wMA-Xu-cQa"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="mock-feed" width="320" height="1340"/>
+    </resources>
 </document>
