@@ -13,13 +13,12 @@
  */
 @interface Notification : MTLModel<MTLJSONSerializing>
 
-@property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSString *link;
-@property (nonatomic, strong) NSString *createdTime;
+@property (nonatomic, strong) NSString *createdDate;
 @property (nonatomic, strong) NSURL *userPictureUrl;
 @property (nonatomic, strong) NSURL *appIconUrl;
+@property (nonatomic, strong) NSArray *keywords;
 
 + (Notification *)parseNotification:(NSDictionary *)dictionary;
 + (NSArray *)parseNotifications:(NSArray *)array;

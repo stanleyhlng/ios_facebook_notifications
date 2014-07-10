@@ -110,18 +110,21 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:@"NotificationTableViewCell"];
 }
 
+/*
 - (NSString *)styledHTMLWithHTML:(NSString *)HTML {
     NSString *style = @"<meta charset=\"UTF-8\"><style> body { font-family: 'HelveticaNeue'; font-size: 20px; } b {font-family: 'MarkerFelt-Wide'; }</style>";
     
     return [NSString stringWithFormat:@"%@%@", style, HTML];
 }
-
+*/
+/*
 - (NSAttributedString *)attributedStringWithHTML:(NSString *)HTML {
     NSDictionary *options = @{
                               NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType
                             };
     return [[NSAttributedString alloc] initWithData:[HTML dataUsingEncoding:NSUTF8StringEncoding] options:options documentAttributes:NULL error:NULL];
 }
+*/
 
 - (void)configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -137,7 +140,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"cell for row at index path: %d", indexPath.row);
+    //NSLog(@"cell for row at index path: %d", indexPath.row);
     
     //Notification *notification = self.notifications[indexPath.row];
     //NSLog(@"DEBUG: %@", notification.title);
@@ -177,12 +180,12 @@
     
     [self configureCell:self.prototypeCell forRowAtIndexPath:indexPath];
     self.prototypeCell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(self.prototypeCell.bounds));
-    NSLog(@"bounds: %f %f", self.prototypeCell.bounds.size.width, self.prototypeCell.bounds.size.height);
+    //NSLog(@"bounds: %f %f", self.prototypeCell.bounds.size.width, self.prototypeCell.bounds.size.height);
 
     [self.prototypeCell layoutIfNeeded];
     
     CGSize size = [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    NSLog(@"height: %f %f", size.width, size.height);
+    //NSLog(@"height: %f %f", size.width, size.height);
     
     return size.height + 1;
 }

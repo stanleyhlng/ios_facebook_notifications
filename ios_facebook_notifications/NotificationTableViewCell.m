@@ -11,11 +11,15 @@
 #import "UIImageView+AFNetworking.h"
 #import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "NSString+StyledHTMLWithHTML.h"
+#import "NSAttributedString+AttributedStringWithHTML.h"
+#import <DateTools.h>
 
 @interface NotificationTableViewCell()
 - (void)setupAppIconImageView;
+- (void)setupDateLabel;
 - (void)setupProfileImageView;
-- (void)setupNotificationLabel;
+- (void)setupTitleLabel;
 @end
 
 @implementation NotificationTableViewCell
@@ -35,7 +39,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.notificationLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.notificationLabel.frame);
+    self.titleLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.titleLabel.frame);
 }
 
 - (void)configure
@@ -44,9 +48,10 @@
         return;
     }
     
-    //[self setupProfileImageView];
+    [self setupProfileImageView];
     [self setupAppIconImageView];
-    [self setupNotificationLabel];
+    [self setupDateLabel];
+    [self setupTitleLabel];
     [self.containerView sizeToFit];
 }
 
@@ -61,6 +66,20 @@
     [self.appIconImageView setImageWithURL:url placeholderImage:placeholder];
 }
 
+- (void)setupDateLabel
+{
+    NSDateFormatter *frm = [[NSDateFormatter alloc] init];
+    [frm setDateStyle:NSDateFormatterLongStyle];
+    [frm setFormatterBehavior:NSDateFormatterBehavior10_4];
+    [frm setDateFormat: @"EEE MMM dd HH:mm:ss Z yyyy"];
+    NSDate *createdDate = [frm dateFromString:self.notification.createdDate];
+    NSDate *timeAgoDate = createdDate;
+    
+    self.dateLabel.font = [UIFont systemFontOfSize:13.0f];
+    self.dateLabel.textColor = [UIColor lightGrayColor];
+    self.dateLabel.text = [NSString stringWithFormat:@"%@", timeAgoDate.timeAgoSinceNow];
+}
+
 - (void)setupProfileImageView;
 {
     NSURL *url = self.notification.userPictureUrl;
@@ -72,13 +91,34 @@
     [self.profileImageView setImageWithURL:url placeholderImage:placeholder];
 }
 
-- (void)setupNotificationLabel
+- (void)setupTitleLabel
 {
-    NSString *text = self.notification.title;
+    NSString *title = self.notification.title;
+
+    [self.titleLabel
+     setText:title
+     afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+
+         NSArray *keywords = self.notification.keywords;
+         UIFont *font = [UIFont boldSystemFontOfSize:14.0f];
+         NSRange range;
+
+         if (keywords != nil) {
+             for (NSString *keyword in keywords) {
+                 NSLog(@"keyword: %@", keyword);
+                 
+                 range = [title rangeOfString:keyword];
+                 
+                 if (range.location != NSNotFound) {
+                     [mutableAttributedString addAttribute:(NSString *)kCTFontAttributeName value:font range:range];
+                 }
+             }
+         }
+         
+         return mutableAttributedString;
+     }];
     
-    self.notificationLabel.font = [UIFont systemFontOfSize:14.0f];
-    self.notificationLabel.text = text;
-    [self.notificationLabel sizeToFit];
+    [self.titleLabel sizeToFit];
 }
 
 @end

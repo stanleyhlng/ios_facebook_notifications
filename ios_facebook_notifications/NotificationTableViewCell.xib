@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="width" constant="15" id="L6B-NV-bFz"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lafina Chan invited you to like ARISSTO HK." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="222" translatesAutoresizingMaskIntoConstraints="NO" id="UVe-Qn-I1B">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lafina Chan invited you to like ARISSTO HK." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="222" translatesAutoresizingMaskIntoConstraints="NO" id="UVe-Qn-I1B" customClass="TTTAttributedLabel">
                                 <rect key="frame" x="0.0" y="0.0" width="222" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,9 +77,9 @@
             <connections>
                 <outlet property="appIconImageView" destination="J5s-RU-N8O" id="qN6-4I-BH8"/>
                 <outlet property="containerView" destination="2tD-aW-wlV" id="2MF-u5-F0E"/>
-                <outlet property="createdAtLabel" destination="Bwa-bO-t5L" id="Zzf-bv-9fV"/>
-                <outlet property="notificationLabel" destination="UVe-Qn-I1B" id="dSv-3y-Sjh"/>
+                <outlet property="dateLabel" destination="Bwa-bO-t5L" id="zO7-31-3D7"/>
                 <outlet property="profileImageView" destination="g1R-EO-hGB" id="4ex-O4-mtq"/>
+                <outlet property="titleLabel" destination="UVe-Qn-I1B" id="HkF-DV-zwO"/>
             </connections>
         </tableViewCell>
     </objects>

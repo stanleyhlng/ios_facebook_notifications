@@ -20,6 +20,8 @@
 		2041C5DF196D2E4500CF44E8 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 2041C5DE196D2E4500CF44E8 /* Notification.m */; };
 		2041C5E6196DE0BD00CF44E8 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2041C5E4196DE0BD00CF44E8 /* NotificationTableViewCell.m */; };
 		2041C5E7196DE0BD00CF44E8 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2041C5E5196DE0BD00CF44E8 /* NotificationTableViewCell.xib */; };
+		2041C5ED196E1A6A00CF44E8 /* NSString+StyledHTMLWithHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2041C5EC196E1A6A00CF44E8 /* NSString+StyledHTMLWithHTML.m */; };
+		2041C5F0196E1AFF00CF44E8 /* NSAttributedString+AttributedStringWithHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2041C5EF196E1AFF00CF44E8 /* NSAttributedString+AttributedStringWithHTML.m */; };
 		20548843196D087C007B99FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20548842196D087C007B99FF /* Foundation.framework */; };
 		20548845196D087C007B99FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20548844196D087C007B99FF /* CoreGraphics.framework */; };
 		20548847196D087C007B99FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20548846196D087C007B99FF /* UIKit.framework */; };
@@ -66,6 +68,10 @@
 		2041C5E3196DE0BD00CF44E8 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
 		2041C5E4196DE0BD00CF44E8 /* NotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewCell.m; sourceTree = "<group>"; };
 		2041C5E5196DE0BD00CF44E8 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
+		2041C5EB196E1A6A00CF44E8 /* NSString+StyledHTMLWithHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StyledHTMLWithHTML.h"; sourceTree = "<group>"; };
+		2041C5EC196E1A6A00CF44E8 /* NSString+StyledHTMLWithHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StyledHTMLWithHTML.m"; sourceTree = "<group>"; };
+		2041C5EE196E1AFF00CF44E8 /* NSAttributedString+AttributedStringWithHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+AttributedStringWithHTML.h"; sourceTree = "<group>"; };
+		2041C5EF196E1AFF00CF44E8 /* NSAttributedString+AttributedStringWithHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+AttributedStringWithHTML.m"; sourceTree = "<group>"; };
 		2054883F196D087C007B99FF /* ios_facebook_notifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_facebook_notifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20548842196D087C007B99FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		20548844196D087C007B99FF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -216,6 +222,33 @@
 			name = Notification;
 			sourceTree = "<group>";
 		};
+		2041C5E8196E199700CF44E8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2041C5EA196E1A2900CF44E8 /* Attributed String with HTML */,
+				2041C5E9196E19F100CF44E8 /* Styled HTML with HTML */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		2041C5E9196E19F100CF44E8 /* Styled HTML with HTML */ = {
+			isa = PBXGroup;
+			children = (
+				2041C5EB196E1A6A00CF44E8 /* NSString+StyledHTMLWithHTML.h */,
+				2041C5EC196E1A6A00CF44E8 /* NSString+StyledHTMLWithHTML.m */,
+			);
+			name = "Styled HTML with HTML";
+			sourceTree = "<group>";
+		};
+		2041C5EA196E1A2900CF44E8 /* Attributed String with HTML */ = {
+			isa = PBXGroup;
+			children = (
+				2041C5EE196E1AFF00CF44E8 /* NSAttributedString+AttributedStringWithHTML.h */,
+				2041C5EF196E1AFF00CF44E8 /* NSAttributedString+AttributedStringWithHTML.m */,
+			);
+			name = "Attributed String with HTML";
+			sourceTree = "<group>";
+		};
 		20548836196D087C007B99FF = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +284,7 @@
 		20548848196D087C007B99FF /* ios_facebook_notifications */ = {
 			isa = PBXGroup;
 			children = (
+				2041C5E8196E199700CF44E8 /* Categories */,
 				2041C5E0196DE07100CF44E8 /* UI */,
 				2041C5BD196D0B6C00CF44E8 /* Models */,
 				2041C5BC196D0B4000CF44E8 /* Controllers */,
@@ -429,11 +463,13 @@
 			files = (
 				2041C5DF196D2E4500CF44E8 /* Notification.m in Sources */,
 				2041C5D0196D111D00CF44E8 /* MessengerViewController.m in Sources */,
+				2041C5ED196E1A6A00CF44E8 /* NSString+StyledHTMLWithHTML.m in Sources */,
 				20548853196D087C007B99FF /* AppDelegate.m in Sources */,
 				2041C5C6196D10C700CF44E8 /* FeedViewController.m in Sources */,
 				2041C5E6196DE0BD00CF44E8 /* NotificationTableViewCell.m in Sources */,
 				2041C5CB196D110500CF44E8 /* RequestsViewController.m in Sources */,
 				2054884F196D087C007B99FF /* main.m in Sources */,
+				2041C5F0196E1AFF00CF44E8 /* NSAttributedString+AttributedStringWithHTML.m in Sources */,
 				2041C5DA196D113700CF44E8 /* MoreViewController.m in Sources */,
 				2041C5D5196D112C00CF44E8 /* NotificationsViewController.m in Sources */,
 			);

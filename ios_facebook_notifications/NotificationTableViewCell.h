@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Notification.h"
+#import <TTTAttributedLabel.h>
 
 @interface NotificationTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *appIconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *notificationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
 
