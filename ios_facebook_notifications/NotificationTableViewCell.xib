@@ -36,7 +36,6 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lafina Chan invited you to like ARISSTO HK." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="222" translatesAutoresizingMaskIntoConstraints="NO" id="UVe-Qn-I1B" customClass="TTTAttributedLabel">
                                 <rect key="frame" x="0.0" y="0.0" width="222" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,7 +50,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.01218991543" blue="0.21540049250000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="UVe-Qn-I1B" firstAttribute="leading" secondItem="2tD-aW-wlV" secondAttribute="leading" id="9wj-13-SNO"/>
                             <constraint firstItem="Bwa-bO-t5L" firstAttribute="top" secondItem="UVe-Qn-I1B" secondAttribute="bottom" id="CRd-Wc-sAy"/>
