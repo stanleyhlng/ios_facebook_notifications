@@ -18,6 +18,8 @@
 		2041C5DA196D113700CF44E8 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2041C5D8196D113700CF44E8 /* MoreViewController.m */; };
 		2041C5DB196D113700CF44E8 /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2041C5D9196D113700CF44E8 /* MoreViewController.xib */; };
 		2041C5DF196D2E4500CF44E8 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 2041C5DE196D2E4500CF44E8 /* Notification.m */; };
+		2041C5E6196DE0BD00CF44E8 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2041C5E4196DE0BD00CF44E8 /* NotificationTableViewCell.m */; };
+		2041C5E7196DE0BD00CF44E8 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2041C5E5196DE0BD00CF44E8 /* NotificationTableViewCell.xib */; };
 		20548843196D087C007B99FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20548842196D087C007B99FF /* Foundation.framework */; };
 		20548845196D087C007B99FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20548844196D087C007B99FF /* CoreGraphics.framework */; };
 		20548847196D087C007B99FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20548846196D087C007B99FF /* UIKit.framework */; };
@@ -61,6 +63,9 @@
 		2041C5D9196D113700CF44E8 /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
 		2041C5DD196D2E4500CF44E8 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		2041C5DE196D2E4500CF44E8 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		2041C5E3196DE0BD00CF44E8 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
+		2041C5E4196DE0BD00CF44E8 /* NotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewCell.m; sourceTree = "<group>"; };
+		2041C5E5196DE0BD00CF44E8 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		2054883F196D087C007B99FF /* ios_facebook_notifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_facebook_notifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20548842196D087C007B99FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		20548844196D087C007B99FF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,6 +190,32 @@
 			name = Notification;
 			sourceTree = "<group>";
 		};
+		2041C5E0196DE07100CF44E8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2041C5E1196DE07600CF44E8 /* Table View Cells */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		2041C5E1196DE07600CF44E8 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2041C5E2196DE08200CF44E8 /* Notification */,
+			);
+			name = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		2041C5E2196DE08200CF44E8 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				2041C5E3196DE0BD00CF44E8 /* NotificationTableViewCell.h */,
+				2041C5E4196DE0BD00CF44E8 /* NotificationTableViewCell.m */,
+				2041C5E5196DE0BD00CF44E8 /* NotificationTableViewCell.xib */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
 		20548836196D087C007B99FF = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +251,7 @@
 		20548848196D087C007B99FF /* ios_facebook_notifications */ = {
 			isa = PBXGroup;
 			children = (
+				2041C5E0196DE07100CF44E8 /* UI */,
 				2041C5BD196D0B6C00CF44E8 /* Models */,
 				2041C5BC196D0B4000CF44E8 /* Controllers */,
 				20548851196D087C007B99FF /* AppDelegate.h */,
@@ -336,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2041C5E7196DE0BD00CF44E8 /* NotificationTableViewCell.xib in Resources */,
 				2041C5D1196D111D00CF44E8 /* MessengerViewController.xib in Resources */,
 				2054884D196D087C007B99FF /* InfoPlist.strings in Resources */,
 				2041C5C7196D10C700CF44E8 /* FeedViewController.xib in Resources */,
@@ -398,6 +431,7 @@
 				2041C5D0196D111D00CF44E8 /* MessengerViewController.m in Sources */,
 				20548853196D087C007B99FF /* AppDelegate.m in Sources */,
 				2041C5C6196D10C700CF44E8 /* FeedViewController.m in Sources */,
+				2041C5E6196DE0BD00CF44E8 /* NotificationTableViewCell.m in Sources */,
 				2041C5CB196D110500CF44E8 /* RequestsViewController.m in Sources */,
 				2054884F196D087C007B99FF /* main.m in Sources */,
 				2041C5DA196D113700CF44E8 /* MoreViewController.m in Sources */,

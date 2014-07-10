@@ -8,10 +8,13 @@
 
 #import "NotificationsViewController.h"
 #import "Notification.h"
+#import "NotificationTableViewCell.h"
 
 @interface NotificationsViewController ()
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *notifications;
+@property (strong, nonatomic) NotificationTableViewCell *prototypeCell;
 
 @end
 
@@ -51,6 +54,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [self.tableView reloadData];
 }
 
 - (void)customizeLeftBarButton
@@ -97,6 +105,9 @@
 {
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+
+    UINib *nib = [UINib nibWithNibName:@"NotificationTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"NotificationTableViewCell"];
 }
 
 - (NSString *)styledHTMLWithHTML:(NSString *)HTML {
@@ -112,23 +123,35 @@
     return [[NSAttributedString alloc] initWithData:[HTML dataUsingEncoding:NSUTF8StringEncoding] options:options documentAttributes:NULL error:NULL];
 }
 
+- (void)configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell isKindOfClass:[NotificationTableViewCell class]]) {
+        NotificationTableViewCell *c = (NotificationTableViewCell *)cell;
+        
+        c.notification = self.notifications[indexPath.row];
+        [c configure];        
+    }
+}
+
 #pragma UITableViewDataSource methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"cell for row at index path: %d", indexPath.row);
     
-    Notification *notification = self.notifications[indexPath.row];
+    //Notification *notification = self.notifications[indexPath.row];
     //NSLog(@"DEBUG: %@", notification.title);
 
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    
+    //UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     //cell.textLabel.text = @"Hello";
-    NSString *styledHtml = [self styledHTMLWithHTML:notification.text];
-    NSAttributedString *attributedText = [self attributedStringWithHTML:styledHtml];
     
-    cell.textLabel.attributedText = attributedText;
-   
+    //NSString *styledHtml = [self styledHTMLWithHTML:notification.text];
+    //NSAttributedString *attributedText = [self attributedStringWithHTML:styledHtml];
+    
+    //cell.textLabel.attributedText = attributedText;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationTableViewCell" forIndexPath:indexPath];
+    [self configureCell:cell forRowAtIndexPath:indexPath];
+    
     return cell;
 }
 
@@ -144,6 +167,24 @@
     NSLog(@"did select row at index path: %d", indexPath.row);
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!self.prototypeCell) {
+        self.prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:@"NotificationTableViewCell"];
+    }
+    
+    [self configureCell:self.prototypeCell forRowAtIndexPath:indexPath];
+    self.prototypeCell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(self.prototypeCell.bounds));
+    NSLog(@"bounds: %f %f", self.prototypeCell.bounds.size.width, self.prototypeCell.bounds.size.height);
+
+    [self.prototypeCell layoutIfNeeded];
+    
+    CGSize size = [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    NSLog(@"height: %f %f", size.width, size.height);
+    
+    return size.height + 1;
 }
 
 @end

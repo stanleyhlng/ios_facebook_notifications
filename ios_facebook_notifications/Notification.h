@@ -18,8 +18,8 @@
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSString *link;
 @property (nonatomic, strong) NSString *createdTime;
-@property (nonatomic, strong) NSString *userPictureUrl;
-@property (nonatomic, strong) NSString *appIconUrl;
+@property (nonatomic, strong) NSURL *userPictureUrl;
+@property (nonatomic, strong) NSURL *appIconUrl;
 
 + (Notification *)parseNotification:(NSDictionary *)dictionary;
 + (NSArray *)parseNotifications:(NSArray *)array;
